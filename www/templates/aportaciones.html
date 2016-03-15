@@ -1,0 +1,15 @@
+<ion-view view-title="Aportaciones">
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="item in AportacionesCtrl.aportaciones | orderBy:fecha:true">
+                <span class="aportacion-receptor" >{{item.receptor.nombre}}</span>
+                <span class="aportacion-fecha" >{{item.fecha| date:'dd-MM-yyyy' }}</span>
+                <span class="aportacion-cantidad" >{{item.cantidad}}€</span> 
+                <span class="aportacion-aportador" >{{item.aportador.nombre}}</span>
+            </ion-item>
+            <ion-item ng-repeat="item in AportacionesCtrl.totalsByUser">
+                {{item}}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

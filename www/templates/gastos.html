@@ -1,0 +1,17 @@
+<ion-view view-title="Gastos">
+    <ion-content>
+        <ion-list>
+            <ion-item class="row" ng-repeat="item in GastosCtrl.gastos | orderBy:fecha_hasta:true">
+                <div class="col col50">
+                    <h2><span class="gasto-motivo" >{{item.motivo}}</span> <span class="aportacion-cantidad" >{{item.cantidad | number:2}}€</span></h2>
+                    <p class="aportacion-fecha" >{{item.fecha_desde| date:'dd/MM/yyyy' }} - {{item.fecha_hasta| date:'dd/MM/yyyy' }}</p>
+                </div>
+                <div class="col col50 participaciones">
+                    <div ng-repeat="participacion in item.participaciones_gasto">
+                        <span>{{participacion.cantidad | number:2}}€ - {{participacion.participante.nombre}}</span>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
