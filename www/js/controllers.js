@@ -66,6 +66,15 @@ angular.module('acu.controllers', [])
             mv.gastos = response.data;
         }
     );
+    
+    var filter = '?';
+    filter += 'filter[grupo]=1&';
+
+    $http.get(CONFIG.apiUrl + '/miembrogrupos'+filter).then(
+        function(response){
+            mv.usuarios = response.data;
+        }
+    );
 }])
 
 .controller('AportacionesCtrl', ['$http', 'CONFIG', '$stateParams', function($http, CONFIG, $stateParams) {

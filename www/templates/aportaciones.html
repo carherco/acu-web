@@ -8,7 +8,7 @@
                     </div>
                     <select ng-model="AportacionesCtrl.Filtro.aportador.id">
                       <option value="" selected>Todos</option>
-                      <option value="{{item.usuario.id}}" ng-repeat="item in AportacionesCtrl.usuarios">{{item.usuario.nombre}}</option>
+                      <option ng-show="item.usuario.id>10" value="{{item.usuario.id}}" ng-repeat="item in AportacionesCtrl.usuarios|filter:{'activo':true}">{{item.usuario.nombre}}</option>
                     </select>
                   </label>
             </ion-item>
