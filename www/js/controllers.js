@@ -88,11 +88,14 @@ angular.module('acu.controllers', [])
         }
     );
     
-//    $http.get(CONFIG.apiUrl + '/usuarios').then(
-//        function(response){
-//            mv.usuarios = response.data;
-//        }
-//    );
+    var filter = '?';
+    filter += 'filter[grupo]=1&';
+
+    $http.get(CONFIG.apiUrl + '/miembrogrupos'+filter).then(
+        function(response){
+            mv.usuarios = response.data;
+        }
+    );
     
 //    mv.calcTotalsByUser = function(){
 //        var user = '';

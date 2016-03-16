@@ -1,14 +1,23 @@
 <ion-view view-title="Aportaciones">
     <ion-content>
         <ion-list>
-            <ion-item ng-repeat="item in AportacionesCtrl.aportaciones | orderBy:fecha:true">
-                <span class="aportacion-receptor" >{{item.receptor.nombre}}</span>
-                <span class="aportacion-fecha" >{{item.fecha| date:'dd-MM-yyyy' }}</span>
-                <span class="aportacion-cantidad" >{{item.cantidad}}€</span> 
-                <span class="aportacion-aportador" >{{item.aportador.nombre}}</span>
+            <ion-item>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                      Filtrar por:
+                    </div>
+                    <select ng-model="AportacionesCtrl.Filtro.aportador.id">
+                      <option value="" selected>Todos</option>
+                      <option value="{{item.usuario.id}}" ng-repeat="item in AportacionesCtrl.usuarios">{{item.usuario.nombre}}</option>
+                    </select>
+                  </label>
             </ion-item>
-            <ion-item ng-repeat="item in AportacionesCtrl.totalsByUser">
-                {{item}}
+            <ion-item ng-repeat="item in AportacionesCtrl.aportaciones | filter:AportacionesCtrl.Filtro | orderBy:fecha:true">
+                <div>
+                    <span class="aportacion-cantidad" >{{item.cantidad}}€</span> 
+                    <span class="aportacion-aportador" >{{item.aportador.nombre}}</span> -> <span class="aportacion-receptor" >{{item.receptor.nombre}}</span>
+                </div>
+                <span class="aportacion-fecha" >{{item.fecha| date:'dd-MM-yyyy' }}</span>
             </ion-item>
         </ion-list>
     </ion-content>
