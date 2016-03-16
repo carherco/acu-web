@@ -1,7 +1,7 @@
 <ion-view view-title="Usuarios">
     <ion-content>
         <ion-list>
-            <ion-item class="row" ng-repeat="item in UsuariosCtrl.usuarios">
+            <ion-item ng-show="item.activo" class="row" ng-repeat="item in UsuariosCtrl.usuarios">
                 <div class="col col50">
                     <h2 class="usuario-nombre" >{{item.nombre}}</h2>
                     <p class="usuario-fechaentrada" >Fecha de entrada: {{item.fecha_entrada.date | date:'dd/MM/yyyy'}}</p>

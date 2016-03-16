@@ -44,6 +44,7 @@ angular.module('acuAPP', ['ionic', 'acu.controllers'])
 
   .state('app.gastos', {
       url: '/gastos',
+//      url: '/gastos/:grupo',
       views: {
         'menuContent': {
           templateUrl: 'templates/gastos.html',
@@ -54,6 +55,7 @@ angular.module('acuAPP', ['ionic', 'acu.controllers'])
     })
     .state('app.aportaciones', {
       url: '/aportaciones',
+//      url: '/aportaciones/:grupo',
       views: {
         'menuContent': {
           templateUrl: 'templates/aportaciones.html',

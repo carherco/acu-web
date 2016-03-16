@@ -51,18 +51,26 @@ angular.module('acu.controllers', [])
     );
 }])
 
-.controller('GastosCtrl', ['$http', 'CONFIG', function($http,CONFIG) {
+.controller('GastosCtrl', ['$http', 'CONFIG', '$stateParams', function($http,CONFIG,$stateParams) {
     mv = this;
+    mv.grupo = $stateParams.grupo || 1;
     mv.gastos = [];
-    $http.get(CONFIG.apiUrl + '/gastos').then(
+    
+///api/participaciongastos.json?filters[participante]=11
+    var filter = '?';
+    filter += 'filter[grupo]=1&';
+    filter += 'filter[participante]=11';
+  
+    $http.get(CONFIG.apiUrl + '/gastos'+filter).then(
         function(response){
             mv.gastos = response.data;
         }
     );
 }])
 
-.controller('AportacionesCtrl', ['$http', 'CONFIG', function($http, CONFIG) {
+.controller('AportacionesCtrl', ['$http', 'CONFIG', '$stateParams', function($http, CONFIG, $stateParams) {
     mv = this;
+    mv.grupo = $stateParams.grupo || 1;
     mv.usuarios = [];
     mv.aportaciones = [];
     mv.totalsByUser = [];
@@ -72,6 +80,7 @@ angular.module('acu.controllers', [])
 //        mv.totalsByUser[user] = mv.aportaciones[i].cantidad;
 //    }
 
+///api/aportacions.json?filters[aportador]=11
     $http.get(CONFIG.apiUrl + '/aportacions').then(
         function(response){
             mv.aportaciones = response.data;
