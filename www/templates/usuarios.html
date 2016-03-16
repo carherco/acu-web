@@ -1,10 +1,17 @@
 <ion-view view-title="Usuarios">
     <ion-content>
         <ion-list>
-            <ion-item ng-repeat="item in UsuariosCtrl.usuarios">
-                <h2 class="usuario-nombre" >{{item.nombre}}</h2>
-                <p class="usuario-fechaentrada" >Fecha de entrada: {{item.grupos_miembro[0].fecha_entrada | date:'dd/MM/yyyy'}}</p>
-                <p class="usuario-fechasalida" >Fecha de salida: {{item.grupos_miembro[0].fecha_salida | date:'dd/MM/yyyy'}}</p>
+            <ion-item class="row" ng-repeat="item in UsuariosCtrl.usuarios">
+                <div class="col col50">
+                    <h2 class="usuario-nombre" >{{item.nombre}}</h2>
+                    <p class="usuario-fechaentrada" >Fecha de entrada: {{item.fecha_entrada.date | date:'dd/MM/yyyy'}}</p>
+                    <p class="usuario-fechasalida" >Fecha de salida: {{item.fecha_salida.date | date:'dd/MM/yyyy'}}</p>
+                </div>
+                <div class="col col50" style="text-align: right">
+                    <div>+{{item.aportaciones | number:2}}</div>
+                    <div>-{{item.gastos | number:2}}</div>
+                    <div>{{item.aportaciones - item.gastos | number:2}}</div>
+                </div>
             </ion-item>
         </ion-list>
     </ion-content>

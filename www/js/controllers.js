@@ -44,7 +44,7 @@ angular.module('acu.controllers', [])
 .controller('UsuariosCtrl', ['$http', 'CONFIG', function($http,CONFIG) {
     mv = this;
     mv.usuarios = [];
-    $http.get(CONFIG.apiUrl + '/usuarios').then(
+    $http.get(CONFIG.apiUrl + '/norest/resumen').then(
         function(response){
             mv.usuarios = response.data;
         }
