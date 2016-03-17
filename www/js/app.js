@@ -17,7 +17,8 @@ angular.module('acuAPP', ['ionic', 'acu.controllers'])
 })
 
 .constant('CONFIG', {
-    apiUrl: 'http://localhost:8000/api',
+//    apiUrl: 'http://localhost:8000/api',
+    apiUrl: 'http://carherco.es/acu-api/web/api',
     itemsByPage: 10
 })
     
@@ -75,5 +76,5 @@ angular.module('acuAPP', ['ionic', 'acu.controllers'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/resumen');
+  $urlRouterProvider.otherwise('/app/usuarios');
 });
