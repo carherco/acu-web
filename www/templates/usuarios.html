@@ -8,9 +8,9 @@
                     <p class="usuario-fechasalida" >Fecha de salida: {{item.fecha_salida.date | date:'dd/MM/yyyy'}}</p>
                 </div>
                 <div class="col col50" style="text-align: right">
-                    <div>+{{item.aportaciones | number:2}}</div>
+                    <div>+{{item.aportaciones + item.ajustes | number:2}}</div>
                     <div>-{{item.gastos | number:2}}</div>
-                    <div>{{item.aportaciones - item.gastos | number:2}}</div>
+                    <div>{{item.aportaciones - item.gastos + item.ajustes | number:2}}</div>
                 </div>
             </ion-item>
         </ion-list>
