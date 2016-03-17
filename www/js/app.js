@@ -17,8 +17,8 @@ angular.module('acuAPP', ['ionic', 'acu.controllers'])
 })
 
 .constant('CONFIG', {
-    apiUrl: 'http://localhost:8000/api',
-//    apiUrl: 'http://carherco.es/acu-api/web/api',
+//    apiUrl: 'http://localhost:8000/api',
+    apiUrl: 'http://carherco.es/acu-api/web/api',
     itemsByPage: 10
 })
     
