@@ -19,7 +19,7 @@
                     </select>
                 </label>
             </ion-item>
-            <ion-item class="row" ng-repeat="item in GastosCtrl.gastos | filter:GastosCtrl.Filtro | orderBy:fecha_hasta:true">
+            <ion-item class="row" ng-repeat="item in GastosCtrl.gastos | filter:GastosCtrl.Filtro | orderBy:'fecha_hasta':true">
                 <div class="col col50">
                     <h2><span class="gasto-motivo" >{{item.motivo}}</span> <span class="aportacion-cantidad" >{{item.cantidad | number:2}}€</span></h2>
                     <p class="aportacion-fecha" >{{item.fecha_desde| date:'dd/MM/yyyy' }} - {{item.fecha_hasta| date:'dd/MM/yyyy' }}</p>
