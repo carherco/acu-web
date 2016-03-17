@@ -1,16 +1,16 @@
 <ion-view view-title="Usuarios">
     <ion-content>
-        <ion-list>
+        <ion-list class="usuarios-list">
             <ion-item ng-show="item.activo" class="row" ng-repeat="item in UsuariosCtrl.usuarios">
-                <div class="col col50">
+                <div class="col col50 usuario">
                     <h2 class="usuario-nombre" >{{item.nombre}}</h2>
-                    <p class="usuario-fechaentrada" >Fecha de entrada: {{item.fecha_entrada.date | date:'dd/MM/yyyy'}}</p>
+                    <p class="usuario-fechaentrada" >Fecha de entrada: {{item.fecha_entrada.date | limitTo: 10}}</p>
                     <p class="usuario-fechasalida" >Fecha de salida: {{item.fecha_salida.date | date:'dd/MM/yyyy'}}</p>
                 </div>
-                <div class="col col50" style="text-align: right">
-                    <div>+{{item.aportaciones + item.ajustes | number:2}}</div>
-                    <div>-{{item.gastos | number:2}}</div>
-                    <div>{{item.aportaciones - item.gastos + item.ajustes | number:2}}</div>
+                <div class="col col50 resumen">
+                    <div><span class="aportaciones-label">Aportaciones:</span><span class="aportaciones-value">+{{item.aportaciones + item.ajustes | number:2}}</span></div>
+                    <div><span class="gastos-label">Gastos:</span><span class="gastos-value">-{{item.gastos | number:2}}</span></div>
+                    <div><span class="saldo-label">Saldo:</span><span class="saldo-value">{{item.aportaciones - item.gastos + item.ajustes | number:2}}</span></div>
                 </div>
             </ion-item>
         </ion-list>

@@ -2,3 +2,17 @@
 .participaciones {
     font-size: x-small;
 }
+
+.usuarios-list .resumen {
+    text-align: right;
+}
+
+.aportaciones-value, .gastos-value, .saldo-value { 
+    margin-left: 20px;
+    width: 100px;
+}
+
+/*.aportaciones-label, .gastos-label, .saldo-label { 
+    margin-right: 20px;
+    width: 100px;
+}*/
