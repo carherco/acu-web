@@ -1,4 +1,4 @@
-angular.module('acuAPP', ['ionic', 'acu.controllers'])
+angular.module('acuAPP', ['ionic','acu.controllers'])
 
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -17,8 +17,8 @@ angular.module('acuAPP', ['ionic', 'acu.controllers'])
 })
 
 .constant('CONFIG', {
-//    apiUrl: 'http://localhost:8000/api',
-    apiUrl: 'http://carherco.es/acu-api/web/api',
+    apiUrl: 'http://localhost:8000/api',
+//    apiUrl: 'http://carherco.es/acu-api/web/api',
     itemsByPage: 10
 })
 
@@ -51,6 +51,17 @@ angular.module('acuAPP', ['ionic', 'acu.controllers'])
                     templateUrl: 'templates/gastos.html',
                     controller: 'GastosCtrl',
                     controllerAs: 'GastosCtrl'
+                }
+            }
+        })
+        .state('app.gastos-nuevo', {
+            url: '/gastos-nuevo/:grupoId',
+//      url: '/gastos/:grupo',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/gastos-nuevo.html',
+                    controller: 'NuevoGastoCtrl',
+                    controllerAs: 'NuevoGastoCtrl'
                 }
             }
         })

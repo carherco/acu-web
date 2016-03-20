@@ -1,0 +1,49 @@
+<ion-view view-title="Gastos">
+    <ion-content>
+        
+        <form name="gastoForm"  role="form"> 
+        <div class="list">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Motivo</span>
+                <input type="text" ng-model="NuevoGastoCtrl.gasto.motivo" required placeholder="motivo">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Cantidad</span>
+                <input type="number" step="any" min="0.01" placeholder="cantidad" ng-model="NuevoGastoCtrl.gasto.cantidad" required>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Desde</span>
+                <input type="date" placeholder="Desde" ng-model="NuevoGastoCtrl.gasto.fechadesde" required>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Hasta</span>
+                <input type="date" placeholder="Hasta" ng-model="NuevoGastoCtrl.gasto.fechadesde" required>
+            </label>
+            
+            <ion-item>
+            <p>Participantes:</p>  
+            <div class="list">   
+                <div class="item item-button-right" ng-repeat="participante in NuevoGastoCtrl.gasto.participantes">
+                    {{participante.nombre}}           
+                    <button class="button button-assertive" ng-click="NuevoGastoCtrl.eliminarParticipante($index)">
+                        <i class="icon ion-close"></i>
+                    </button>
+                </div>
+                <div class="item item-input-inset">
+                    <label class="item-input-wrapper">
+                        <input id="{{participante.id}}" type="text" class="item item-input" ng-model="participante.nombre" />
+                    </label>     
+                    <button class="button button-balanced" ng-click="NuevoGastoCtrl.eliminarParticipante($index)">
+                        <i class="icon ion-plus"></i>
+                    </button>
+                </div> 
+            </div>
+            </ion-item>
+            
+            <button type="submit" ng-click="NuevoGastoCtrl.guardarGasto()" ng-disabled="isClean() || gastoForm.$invalid || NuevoGastoCtrl.gasto.participantes.length === 0" class="button button-block button-positive">Guardar</button>
+            <a ng-href="#/gastos" name="/gastos" class="button button-block button-positive">Volver</a>
+        </div>
+        </form>
+
+    </ion-content>
+</ion-view>
