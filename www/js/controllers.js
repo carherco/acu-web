@@ -132,6 +132,7 @@ angular.module('acu.controllers', [])
     mv = this;
     mv.grupoId = $stateParams.grupoId || 1;
     mv.gasto = new Object();
+    mv.gasto.grupo = mv.grupoId;
     mv.gasto.participantes = new Array();
     //var that = $scope.gasto.participantes;
 
@@ -156,7 +157,7 @@ angular.module('acu.controllers', [])
      * POST del gasto
      */
     mv.guardarGasto = function () {
-        $http.post(CONFIG.apiUrl + '/gasto',mv.gasto).then(
+        $http.post(CONFIG.apiUrl + '/gastos',mv.gasto).then(
             function () {
                 $('#mensajeExito').show(200).delay(2000).hide(1000);
             },
